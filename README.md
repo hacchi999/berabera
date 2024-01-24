@@ -1,98 +1,97 @@
 # BeraChainTools
 
-BeraChainTools 一个为 BeraChain 生态系统设计的工具集，旨在帮助用户轻松地进行各种交互和操作。
+BeraChainTools Коллекция инструментов для экосистемы BeraChain, призванных помочь пользователям легко выполнять различные взаимодействия и операции.
 
-### 安装依赖
+# # Установка зависимостей
 
-在开始使用 BeraChainTools 之前，请确保安装了所有必要的依赖。
+Прежде чем начать использовать BeraChainTools, убедитесь, что вы установили все необходимые зависимости.
 
-执行以下命令以安装依赖：
+Выполните следующую команду для установки зависимостей:
 
-```
+``
 pip install -r requirements.txt
 ```
 
-### 配置指南
+### Руководство по настройке
 
-#### 1. 设置代理
+#### 1. Настройка агента
 
-- 打开 `.env` 文件。
-- 找到 `PROXY_URL` 并替换成你的代理提取链接。请确保提取格式为文本（text），提取数量设置为1。
+- Откройте файл `.env`.
+- Найдите `PROXY_URL` и замените его на ссылку извлечения прокси. Убедитесь, что формат извлечения - текстовый, а количество извлечений установлено на 1.
 
-  示例：
-  ```
+  Пример:
+  ``
   PROXY_URL=http://example.com/get-proxy?nums=1
   ```
 
-#### 2. 设置 YesCaptcha Key
+#### 2. Настройка ключа YesCaptcha
 
-- 如果你还没有 YesCaptcha 账号，请先在这里注册：[yescaptcha注册链接](https://yescaptcha.com/i/0vVEgw)。
-- 获取你的 YesCaptcha ClientKey。
-- 在 `.env` 文件中找到 `YesCaptchaClientKey` 并填入你的 ClientKey。
+- Если у вас еще нет учетной записи YesCaptcha, сначала зарегистрируйтесь здесь: [yescaptcha registration link](https://yescaptcha.com/i/0vVEgw).
+- Получите свой ключ клиента YesCaptcha.
+- Найдите `YesCaptchaClientKey` в файле `.env` и заполните свой ClientKey.
 
-  示例：
+  Пример:
   ```
   YesCaptchaClientKey=YOUR_CLIENTKEY_HERE
   ```
 
-#### 3. 设置 MaxWorkers(最大工作线程)
+#### 3. Установка MaxWorkers
 
-- 在 `.env` 文件中找到 `MaxWorkers` 并填入你想要设置的线程数量。
+- Найдите `MaxWorkers` в файле `.env` и впишите количество потоков, которое вы хотите установить.
 
-  示例：
-  ```
+  Пример:
+  ``
   MaxWorkers=8
   ```
 
-## 功能和使用方法
+## Особенности и использование
 
-### BeraChain 领水
+### BeraChain Collateral Water
 
 drip_tokens.py
-支持创建地址领水或指定地址领水
+Создает или указывает адрес для получения воды.
 
-- **访问链接**：[BeraChain领水](https://artio.faucet.berachain.com/)
-- **状态**：已完成
+- **Ссылка доступа**: [BeraChain water collection](https://artio.faucet.berachain.com/)
+- **Статус**: завершен
 
-### bex 交互
+### Взаимодействие с бексами
 
 bex_swap.py
-支持代币交换和增加流动性
+Поддержка обмена токенов и повышения ликвидности
 
-- **访问链接**：[bex交互](https://artio.bex.berachain.com/swap)
-- **状态**：已完成
+- **Ссылка**: [взаимодействие с bex](https://artio.bex.berachain.com/swap)
+- **Статус**: завершен
 
-### honey 交互
+### взаимодействие с медом
 
 honey_swap.py
-支持mint和redeem
+Поддержка майнинга и выкупа
 
-- **访问链接**：[honey交互](https://artio.honey.berachain.com)
-- **状态**：已完成
+- **Ссылка на доступ**: [взаимодействие с медом](https://artio.honey.berachain.com)
+- **Статус**: завершен
 
-### bend 交互
+### bend interaction
 
-用于与 BeraChain 的 bend 服务交互。
+Используется для взаимодействия с сервисом BeraChain's bend.
 
-- **访问链接**：[bend交互](https://artio.bend.berachain.com/)
-- **状态**：待完成
+- **Ссылка**: [bend interaction](https://artio.bend.berachain.com/)
+- **Статус**: в процессе
 
-### berps 交互
+### berps interaction
 
-用于与 BeraChain 的 berps 服务交互。
+Используется для взаимодействия с сервисом berps компании BeraChain.
 
-- **访问链接**：[berps交互](https://artio.berps.berachain.com/)
-- **状态**：待完成
+- **Ссылка на доступ**: [berps interaction](https://artio.berps.berachain.com/)
+- **Статус**: в процессе
 
-### station 交互
+### взаимодействие со станцией
 
-用于与 BeraChain 的 station 服务交互。
+Используется для взаимодействия со станционным сервисом BeraChain.
 
-- **访问链接**：[station交互](https://artio.station.berachain.com/)
-- **状态**：待完成
+- **Ссылка на доступ**: [взаимодействие со станцией](https://artio.station.berachain.com/)
+- **Статус**: ожидается
 
 ---
 
-感谢使用
-BeraChainTools！如有任何问题或建议，请随时通过 [GitHub Issues](https://github.com/ymmmmmmmm/BeraChainTools/issues) 提交。
-
+Спасибо за использование
+BeraChainTools! Если у вас есть вопросы или предложения, пожалуйста, свяжитесь с нами через [GitHub Issues](https://github.com/ym)
