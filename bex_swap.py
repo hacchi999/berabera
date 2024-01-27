@@ -29,17 +29,17 @@ w3 = Web3(Web3.HTTPProvider(rpc_url))
 def bex_swap(address: Union[Address, ChecksumAddress], private_key: Union[bytes, HexStr, int],
              pool_address: Union[Address], asset_out_address: Union[Address, ChecksumAddress]) -> str:
     """
-    bex 交换代币
-    :param address: 需要交互的钱包地址
-    :param private_key: 需要交互的钱包私钥
-    :param pool_address: 交互的pool id
-    :param asset_out_address: 输出的token合约地址
-    :return: hash
+    BEXトークンのスワップ操作を実行します。
+    :param address: 交互に使用するウォレットのアドレス
+    :param private_key: 交互に使用するウォレットのプライベートキー
+    :param pool_address: 交互のプールID
+    :param asset_out_address: 出力トークンのコントラクトアドレス
+    :return: トランザクションのハッシュ
     """
     balance = w3.eth.get_balance(address)
     logger.debug(balance)
     assert balance != 0
-    # 支付BERA占比
+    # # BERAの割合を支払う　支付BERA占比
     nonce = w3.eth.get_transaction_count(address)
     value = int(balance * 0.1)
     txn = bex_contract.functions.batchSwap(kind=0, swaps=[
@@ -63,6 +63,13 @@ def bex_swap(address: Union[Address, ChecksumAddress], private_key: Union[bytes,
 def bex_add_liquidity(address: Union[Address, ChecksumAddress], private_key: Union[bytes, HexStr, int],
                       pool_address: Union[Address], asset_in_address: Union[Address]) -> str:
     """
+    リキッドプールに資産を追加します。
+    :param address: 交互に使用するウォレットのアドレス
+    :param private_key: 交互に使用するウォレットのプライベートキー
+    :param pool_address: リキッドプールのアドレス
+    :param asset_in_address: リキッドプールに追加する資産のコントラクトアドレス
+    :return: トランザクションのハッシ
+    
     加流动性
     :param address: 需要交互的钱包地址
     :param private_key: 需要交互的钱包私钥
@@ -73,12 +80,12 @@ def bex_add_liquidity(address: Union[Address, ChecksumAddress], private_key: Uni
     asset_in_token_contract = w3.eth.contract(address=asset_in_address, abi=erc_20_abi)
     token_balance = asset_in_token_contract.functions.balanceOf(address).call()
     assert token_balance != 0
-    # 支付 token 占比
+    # 資産を支払う　支付 token 占比　
     value = int(token_balance * 0.8)
     allowance_balance = asset_in_token_contract.functions.allowance(address, bex_approve_liquidity_address).call()
     nonce = w3.eth.get_transaction_count(address)
     if allowance_balance < value:
-        # 需要授权
+        # 承認が必要　需要授权
         txn = w3.eth.account.sign_transaction(dict(
             nonce=nonce,
             chainId=80085,
@@ -139,7 +146,7 @@ def ym_test_run():
 
 
 if __name__ == '__main__':
-    # 读取当前文件夹下面的bera_claim_success(领取成功文本)
+    # 現在のフォルダーからbera_claim_success（受け取り成功テキスト）を読み取り　读取当前文件夹下面的bera_claim_success(领取成功文本)
     with open('./bera_claim_success.txt', 'r') as f:
         wallet_list = f.readlines()
     random.shuffle(wallet_list)
